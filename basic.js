@@ -1,11 +1,22 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 (async () => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage(
-        { headless: true }
+        { headless: false }
     );
-    await page.goto('https://www.zditm.szczecin.pl/pl/zditm/dla-programistow/api-linie');
-    await page.screenshot({ path: 'example.png', fullPage: true });
+    
+    await page.setViewport({ width: 1280, height: 800, isMobile: false, isLandscape: true, hasTouch: false, deviceScaleFactor: 1 });
+    await page.setGeolocation({latitude: 49.5, longitude: 34.21})
+
+    await page.goto('https://www.chapters.indigo.ca');
+
+    const url = await page.url();
+    console.log(url);
+    const content = await page.content();
+    console.log(content);
+    await page.screenshot({ path: './screens/example.png', fullPage: true });
+    await page.screenshot({ path: './screens/example2.png', clip: { x: 0, y: 0, width: 500, height: 500 } });
+
     await browser.close();
 })();

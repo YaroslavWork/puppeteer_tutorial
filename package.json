@@ -2,10 +2,11 @@
   "name": "puppeteer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "basic.js",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "test": "node index.js"
+    "start": "node basic.js",
+    "test": "node basic.js"
   },
   "author": "",
   "license": "ISC",
