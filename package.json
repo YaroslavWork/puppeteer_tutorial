@@ -1,9 +1,7 @@
 {
   "name": "puppeteer",
   "version": "1.0.0",
-  "description": "",
   "main": "basic.js",
-  "type": "module",
   "scripts": {
     "start": "node basic.js",
     "test": "node basic.js"
@@ -12,5 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "puppeteer": "^21.7.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

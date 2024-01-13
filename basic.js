@@ -1,10 +1,8 @@
-import puppeteer from 'puppeteer';
+const puppeteer = require('puppeteer');
 
 (async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage(
-        { headless: false }
-    );
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
     
     await page.setViewport({ width: 1280, height: 800, isMobile: false, isLandscape: true, hasTouch: false, deviceScaleFactor: 1 });
     await page.setGeolocation({latitude: 49.5, longitude: 34.21})
@@ -18,5 +16,8 @@ import puppeteer from 'puppeteer';
     await page.screenshot({ path: './screens/example.png', fullPage: true });
     await page.screenshot({ path: './screens/example2.png', clip: { x: 0, y: 0, width: 500, height: 500 } });
 
-    await browser.close();
+    // await page.type('input.selector', 'text');
+    // await page.waitForSelector('.someselector');
+
+    //await browser.close();
 })();
